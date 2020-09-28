@@ -2,10 +2,10 @@ package com.yhd.amn.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.yhd.amn.bean.Sys;
 import com.yhd.amn.bean.User;
 import com.yhd.amn.common.base.BaseController;
 import com.yhd.amn.common.valid.Create;
+import com.yhd.amn.common.valid.Update;
 import com.yhd.amn.common.view.R;
 import com.yhd.amn.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,5 +59,27 @@ public class UserController extends BaseController {
     public R getDetailById(@PathVariable(value = "uno") Integer uno){
         User user = userService.getDetailByUno(uno);
         return R.ok(user);
+    }
+
+    /**
+     * 修改用户
+     * @param user
+     * @return
+     */
+    @PutMapping("edit")
+    public R updateUser(@Validated(Update.class) @RequestBody User user){
+        userService.update(user);
+        return R.okMsg(R.UPDATE_SUC);
+    }
+
+    /**
+     * 删除用户
+     * @param uno
+     * @return
+     */
+    @DeleteMapping("delete/{uno}")
+    public R deleteSys(@PathVariable(value = "uno") Integer uno) {
+        userService.delete(uno);
+        return R.okMsg(R.DEL_SUC);
     }
 }

@@ -49,4 +49,23 @@ public class UserServiceImpl implements UserService {
     public User getDetailByUno(Integer uno) {
         return userMapper.getDetailById(uno);
     }
+
+    /**
+     * 修改用户
+     * @param user
+     */
+    @Override
+    public void update(User user) {
+        userMapper.updateById(user);
+    }
+
+    /**
+     * 删除用户
+     * @param uno
+     * @return
+     */
+    @Override
+    public Integer delete(Integer uno) {
+        return userMapper.deleteById(uno);
+    }
 }

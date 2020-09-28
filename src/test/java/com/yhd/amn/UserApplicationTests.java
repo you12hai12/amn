@@ -63,4 +63,26 @@ public class UserApplicationTests extends BaseController {
         System.out.println(user.getUname());
     }
 
+    @Test
+    void testEditUser() { //测试修改
+        User user = new User();
+        user.setId(3);
+        user.setUno(3);
+        user.setUname("李磊");
+        user.setIno("421125199006255263");
+        user.setBirth(DateUtil.fomatDate("1990-06-25"));
+        user.setUage(30);
+        user.setUsex(1);
+        user.setMobile("13956232145");
+        user.setAddr("湖南省长沙市");
+        user.setRemark("修改用户");
+        userService.update(user);
+    }
+
+    @Test
+    void testDeleteUser() { //测试删除
+        Integer uno = 3;
+        userService.delete(uno);
+    }
+
 }

@@ -111,4 +111,9 @@
             u.uno = #{uno}
         </where>
     </select>
+
+    <update id="update" parameterType="com.yhd.amn.bean.User">
+        update t_user set uno=#{uno},uname=#{uname},ino=#{ino},birth=#{birth},uage=#{uage},usex=#{usex},mobile=#{mobile},addr=#{addr},remark=#{remark}
+        where id=#{id}
+    </update>
 </mapper>

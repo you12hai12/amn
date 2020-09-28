@@ -69,7 +69,7 @@ public class SysApplicationTests extends BaseController {
     }
 
     @Test
-    void testDeleteSys() {
+    void testDeleteSys() { //测试删除
         Integer sno = 4;
         sysService.delete(sno);
     }

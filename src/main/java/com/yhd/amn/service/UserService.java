@@ -30,4 +30,17 @@ public interface UserService {
      * @return
      */
     User getDetailByUno(Integer uno);
+
+    /**
+     * 修改用户
+     * @param user
+     */
+    void update(User user);
+
+    /**
+     * 删除用户
+     * @param uno
+     * @return
+     */
+    Integer delete(Integer uno);
 }
