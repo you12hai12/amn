@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 28/09/2020 15:34:42
+ Date: 28/09/2020 17:45:58
 */
 
 SET NAMES utf8mb4;
@@ -40,6 +40,41 @@ INSERT INTO `t_amn` VALUES (9, 'http://tmp/wx2e227a019a3bf9c9.o6zAJs8YkhBXHQaiPX
 INSERT INTO `t_amn` VALUES (11, 'http://tmp/wx2e227a019a3bf9c9.o6zAJs8YkhBXHQaiPXZtI0buWzsY.gOGLUE41HNIl4ee8b9a3d2b73b625fd3f7f087562221.png', 'http://tmp/wx2e227a019a3bf9c9.o6zAJs8YkhBXHQaiPXZtI0buWzsY.gOGLUE41HNIl4ee8b9a3d2b73b625fd3f7f087562221.png');
 
 -- ----------------------------
+-- Table structure for t_cla
+-- ----------------------------
+DROP TABLE IF EXISTS `t_cla`;
+CREATE TABLE `t_cla`  (
+  `cid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `cno` tinyint(3) UNSIGNED ZEROFILL NOT NULL COMMENT '班号',
+  `cname` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '班名',
+  `caddr` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '位置',
+  PRIMARY KEY (`cid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_cla
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_stu
+-- ----------------------------
+DROP TABLE IF EXISTS `t_stu`;
+CREATE TABLE `t_stu`  (
+  `sid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `sno` int(10) UNSIGNED ZEROFILL NOT NULL COMMENT '学号',
+  `sch` decimal(5, 1) UNSIGNED NOT NULL COMMENT '语文',
+  `sma` decimal(5, 1) UNSIGNED NOT NULL COMMENT '数学',
+  `sen` decimal(5, 1) UNSIGNED NOT NULL COMMENT '英语',
+  `sclass` tinyint(3) UNSIGNED ZEROFILL NOT NULL COMMENT '班级',
+  `steacher` int(10) UNSIGNED ZEROFILL NOT NULL COMMENT '老师',
+  PRIMARY KEY (`sid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_stu
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for t_sys
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys`;
@@ -60,6 +95,21 @@ INSERT INTO `t_sys` VALUES (1, 0000000001, 'Windows7操作系统', 'Windows7', '
 INSERT INTO `t_sys` VALUES (2, 0000000002, 'Windows8操作系统', 'Windows8', '已经不在使用了');
 INSERT INTO `t_sys` VALUES (3, 0000000003, 'Windows10操作系统', 'Windows10', '现在正在使用');
 INSERT INTO `t_sys` VALUES (4, 0000000004, 'CentOS8操作系统', 'Linux', '正在升级中');
+
+-- ----------------------------
+-- Table structure for t_tea
+-- ----------------------------
+DROP TABLE IF EXISTS `t_tea`;
+CREATE TABLE `t_tea`  (
+  `tid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `tno` int(10) UNSIGNED ZEROFILL NOT NULL COMMENT '工号',
+  `tle` tinyint(3) UNSIGNED NOT NULL COMMENT '等级',
+  PRIMARY KEY (`tid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_tea
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for t_user
@@ -84,6 +134,5 @@ CREATE TABLE `t_user`  (
 -- ----------------------------
 INSERT INTO `t_user` VALUES (1, 0000000001, '张飒', '421126199202124125', '1992-02-12', 28, 0, '13956232145', '湖南省长沙市', '新增用户');
 INSERT INTO `t_user` VALUES (2, 0000000002, '张飒1', '421126199202124125', '2020-09-27', 28, 0, '13956232145', '湖南省长沙市', '新增用户');
-INSERT INTO `t_user` VALUES (3, 0000000003, '张飒1', '421126199202124125', '1992-02-12', 28, 0, '13956232145', '湖南省长沙市', '新增用户');
 
 SET FOREIGN_KEY_CHECKS = 1;
