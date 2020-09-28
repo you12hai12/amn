@@ -49,4 +49,15 @@ public class UserController extends BaseController {
         IPage<User> userPage = userService.getUserPage(page,user);
         return R.ok(userPage);
     }
+
+    /**
+     * 根据uno查询用户详情
+     * @param uno
+     * @return
+     */
+    @GetMapping("detail/{uno}")
+    public R getDetailById(@PathVariable(value = "uno") Integer uno){
+        User user = userService.getDetailByUno(uno);
+        return R.ok(user);
+    }
 }

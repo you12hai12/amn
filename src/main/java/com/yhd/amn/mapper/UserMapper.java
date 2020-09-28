@@ -18,4 +18,11 @@ public interface UserMapper extends BaseMapper<User> {
      * @return
      */
     IPage<User> getUserPage(@Param("page") Page<User> page, @Param("user") User user);
+
+    /**
+     * 根据用户编号查详情
+     * @param uno
+     * @return
+     */
+    User getDetailById(Integer uno);
 }

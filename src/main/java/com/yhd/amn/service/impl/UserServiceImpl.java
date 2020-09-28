@@ -39,4 +39,14 @@ public class UserServiceImpl implements UserService {
     public IPage<User> getUserPage(Page<User> page, User user) {
         return userMapper.getUserPage(page,user);
     }
+
+    /**
+     * 根据用户编号查详情
+     * @param uno
+     * @return
+     */
+    @Override
+    public User getDetailByUno(Integer uno) {
+        return userMapper.getDetailById(uno);
+    }
 }

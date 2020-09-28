@@ -42,6 +42,9 @@ public class UserApplicationTests extends BaseController {
         System.out.println(user.getId());
     }
 
+    /**
+     * 测试列表
+     */
     @Test
     void testUserList() {
         Page<User> page = getPage();
@@ -51,6 +54,13 @@ public class UserApplicationTests extends BaseController {
         User user = new User();
         IPage<User> list = userService.getUserPage(page,user);
         System.out.println(list.getTotal());
+    }
+
+    @Test
+    void testDetailByUno() { //测试查询详情
+        Integer uno = 1;
+        User user = userService.getDetailByUno(uno);
+        System.out.println(user.getUname());
     }
 
 }

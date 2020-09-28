@@ -23,4 +23,11 @@ public interface UserService {
      * @return
      */
     IPage<User> getUserPage(Page<User> page, User user);
+
+    /**
+     * 根据用户编号查详情
+     * @param uno
+     * @return
+     */
+    User getDetailByUno(Integer uno);
 }

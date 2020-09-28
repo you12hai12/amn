@@ -92,4 +92,23 @@
             </if>
         </where>
     </select>
+
+    <select id="getDetailById" resultType="com.yhd.amn.bean.User">
+        SELECT
+        u.id,
+        u.uno,
+        u.uname,
+        u.ino,
+        u.birth,
+        u.uage,
+        u.usex,
+        u.mobile,
+        u.addr,
+        u.remark
+        FROM
+        t_user u
+        <where>
+            u.uno = #{uno}
+        </where>
+    </select>
 </mapper>
