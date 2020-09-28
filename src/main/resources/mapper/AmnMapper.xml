@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yhd.amn.mapper.AmnMapper">
+    <insert id="insert" parameterType="com.yhd.amn.bean.Amn">
+        insert into t_amn
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                #{url,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="getAmnPage" resultType="com.yhd.amn.bean.Amn">
+        select
+        a.id,
+        a.name,
+        a.url
+        from t_amn a
+        <where>
+            <if test="amn.name != null">
+                and a.name = #{amn.name}
+            </if>
+            <if test="amn.url != null">
+                and a.url = #{amn.url}
+            </if>
+        </where>
+    </select>
+
+    <select id="getDetailById" resultType="com.yhd.amn.bean.Amn">
+        select
+        a.id,
+        a.name,
+        a.url
+        from t_amn a
+        <where>
+            a.id = #{id}
+        </where>
+    </select>
+
+    <update id="update" parameterType="com.yhd.amn.bean.Amn">
+        update t_amn set name=#{amn.name},url=#{amn.url}
+        where id=#{amn.id}
+    </update>
+</mapper>

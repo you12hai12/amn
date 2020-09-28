@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yhd.amn.mapper.UserMapper">
+    <insert id="insert" parameterType="com.yhd.amn.bean.User">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="uno != null">
+                uno,
+            </if>
+            <if test="uname != null">
+                uname,
+            </if>
+            <if test="ino != null">
+                ino,
+            </if>
+            <if test="birth != null">
+                birth,
+            </if>
+            <if test="uage != null">
+                uage,
+            </if>
+            <if test="usex != null">
+                usex,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="addr != null">
+                addr,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="uno != null">
+                #{uno,jdbcType=INTEGER},
+            </if>
+            <if test="uname != null">
+                #{uname,jdbcType=VARCHAR},
+            </if>
+            <if test="ino != null">
+                #{ino,jdbcType=VARCHAR},
+            </if>
+            <if test="birth != null">
+                #{birth,jdbcType=DATE},
+            </if>
+            <if test="uage != null">
+                #{uage,jdbcType=INTEGER},
+            </if>
+            <if test="usex != null">
+                #{usex,jdbcType=INTEGER},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="addr != null">
+                #{addr,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="getUserPage" resultType="com.yhd.amn.bean.User">
+        SELECT
+        u.id,
+        u.uno,
+        u.uname,
+        u.ino,
+        u.birth,
+        u.uage,
+        u.usex,
+        u.mobile,
+        u.addr,
+        u.remark
+        FROM
+        t_user u
+        <where>
+            <if test="user.uno != null">
+                and u.uno = #{user.uno}
+            </if>
+            <if test="user.uname != null">
+                and u.uname = #{user.uname}
+            </if>
+        </where>
+    </select>
+</mapper>

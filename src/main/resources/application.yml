@@ -1,0 +1,23 @@
+
+spring:
+  datasource:
+    name: amn
+    url: jdbc:mysql://localhost:3306/amn?serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 8888
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+  mapper-locations: classpath:mapper/*Mapper.xml
+
+logging:
+  level:
+    com.yhd.amn: info

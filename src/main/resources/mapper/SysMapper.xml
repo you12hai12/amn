@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yhd.amn.mapper.SysMapper">
+    <insert id="insert" parameterType="com.yhd.amn.bean.Sys">
+        insert into t_sys
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                sid,
+            </if>
+            <if test="sno != null">
+                sno,
+            </if>
+            <if test="sname != null">
+                sname,
+            </if>
+            <if test="sversion != null">
+                sversion,
+            </if>
+            <if test="sremark != null">
+                sremark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                #{sid,jdbcType=INTEGER},
+            </if>
+            <if test="sno != null">
+                #{sno,jdbcType=INTEGER},
+            </if>
+            <if test="sname != null">
+                #{sname,jdbcType=VARCHAR},
+            </if>
+            <if test="sversion != null">
+                #{sversion,jdbcType=VARCHAR},
+            </if>
+            <if test="sremark != null">
+                #{sremark,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="getSysPage" resultType="com.yhd.amn.bean.Sys">
+        select
+        s.sid,
+        s.sno,
+        s.sname,
+        s.sversion,
+        s.sremark
+        from t_sys s
+        <where>
+            <if test="sys.sno != null">
+                and s.sno = #{sys.sno}
+            </if>
+            <if test="sys.sname != null">
+                and s.sname = #{sys.sname}
+            </if>
+            <if test="sys.sversion != null">
+                and s.sversion = #{sys.sversion}
+            </if>
+        </where>
+    </select>
+
+    <select id="getDetailById" resultType="com.yhd.amn.bean.Sys">
+        select
+        s.sid,
+        s.sno,
+        s.sname,
+        s.sversion,
+        s.sremark
+        from t_sys s
+        <where>
+            s.sno = #{sno}
+        </where>
+    </select>
+
+    <update id="update" parameterType="com.yhd.amn.bean.Sys">
+        update t_sys set sno=#{sno},sname=#{sys.sname},sversion=#{sys.sversion},sremark=#{sys.sremark}
+        where sid=#{sys.sid}
+    </update>
+</mapper>
