@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 学生
+ */
 @RestController
 @RequestMapping("/stu")
 public class StuController extends BaseController {
@@ -26,6 +29,7 @@ public class StuController extends BaseController {
      */
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public R addStu(@Validated(Create.class) @RequestBody Stu stu){
-        return stuService.addStu(stu);
+        stuService.addStu(stu);
+        return R.okMsg(R.ADD_SUC);
     }
 }

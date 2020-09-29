@@ -29,7 +29,8 @@ public class UserController extends BaseController {
      */
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public R addUser(@Validated(Create.class) @RequestBody User user){
-        return userService.addUser(user);
+        userService.addUser(user);
+        return R.okMsg(R.ADD_SUC);
     }
 
     /**

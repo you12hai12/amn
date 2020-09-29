@@ -24,9 +24,8 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public R addUser(User user) {
+    public void addUser(User user) {
         userMapper.insert(user);
-        return R.okMsg(R.ADD_SUC);
     }
 
     /**

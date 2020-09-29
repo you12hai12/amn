@@ -14,7 +14,7 @@ public interface UserService {
      * @param user
      * @return
      */
-    R addUser(User user);
+    void addUser(User user);
 
     /**
      * 用户列表

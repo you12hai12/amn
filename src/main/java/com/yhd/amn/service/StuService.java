@@ -1,7 +1,6 @@
 package com.yhd.amn.service;
 
 import com.yhd.amn.bean.Stu;
-import com.yhd.amn.common.view.R;
 
 /**
  * 学生
@@ -12,5 +11,5 @@ public interface StuService {
      * @param stu
      * @return
      */
-    R addStu(Stu stu);
+    void addStu(Stu stu);
 }
